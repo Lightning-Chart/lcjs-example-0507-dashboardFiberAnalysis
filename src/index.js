@@ -167,16 +167,8 @@ axisBottomX.onScaleChange((start, end) => syncAxisXEventHandler(axisBottomX, sta
 axisTopX.onScaleChange((start, end) => syncAxisXEventHandler(axisTopX, start, end))
 
 
-// Synchronize left margin of stacked Y Axes' by adding invisible custom ticks with hard coded width.
-;[axisTopY, axisBottomY].forEach((axis) => axis
-    .addCustomTick(UIElementBuilders.AxisTick)
-        .setTickLength(120)
-        // Following code makes the tick invisible.
-        .setTextFormatter(() => "")
-        .setGridStrokeStyle(emptyLine)
-        .setMarker((marker) => marker.setTickStyle(emptyLine))
-
-)
+// Align stacked Y Axes'.
+;[axisTopY, axisBottomY].forEach((axis) => axis.setThickness(100))
 
 
 // Visualize data.

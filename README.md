@@ -80,9 +80,9 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 [Chart XY]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/chartxy.html
 [Axis XY]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/axis.html
 [Area Series]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/areaseriespositive.html
-[Heatmap Grid Series]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/
-[UI LUT range]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/
-[UI Element]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/
+[Heatmap Grid Series]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/heatmapgridseriesintensityvalues.html
+[UI LUT range]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/interfaces/uilutrange.html
+[UI Element]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/interfaces/uielement.html
 [Axis Tick strategies]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/globals.html#axistickstrategies
 [Area series types]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/globals.html#areaseriestypes
 [Color factory RGBA]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/globals.html#colorrgba
