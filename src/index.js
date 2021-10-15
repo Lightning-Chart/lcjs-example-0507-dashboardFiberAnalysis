@@ -17,6 +17,7 @@ const {
     emptyTick,
     UIElementBuilders, 
     UIOrigins,
+    synchronizeAxisIntervals,
     Themes
 } = lcjs
 
@@ -148,23 +149,7 @@ const axisBottomY = chartBottom.getDefaultAxisY()
 
 
 // Code for synchronizing all X Axis intervals in stacked XY charts.
-let isAxisXScaleChangeActive = false
-const syncAxisXEventHandler = (axis, start, end) => {
-   if (isAxisXScaleChangeActive) return
-   isAxisXScaleChangeActive = true
-
-   // Find all other X Axes.
-   const otherAxes = axis === axisBottomX ? [axisTopX] : [axisBottomX]
-
-   // Sync other X Axis intervals.  
-   otherAxes.forEach((axis) => axis
-      .setInterval(start, end, false, true)
-   )
-
-   isAxisXScaleChangeActive = false
-}
-axisBottomX.onScaleChange((start, end) => syncAxisXEventHandler(axisBottomX, start, end))
-axisTopX.onScaleChange((start, end) => syncAxisXEventHandler(axisTopX, start, end))
+synchronizeAxisIntervals(axisBottomX, axisTopX)
 
 
 // Align stacked Y Axes'.
