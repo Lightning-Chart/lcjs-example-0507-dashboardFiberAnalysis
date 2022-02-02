@@ -76,21 +76,21 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © Arction Ltd 2009-2020. All rights reserved.
 
 
-[LightningChart]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/interfaces/lightningchart.html
-[Chart XY]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/classes/chartxy.html
-[Axis XY]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/classes/axis.html
-[Area Series]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/classes/areaseriespositive.html
-[Heatmap Grid Series]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/classes/heatmapgridseriesintensityvalues.html
-[UI LUT range]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/interfaces/uilutrange.html
-[UI Element]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/interfaces/uielement.html
-[Axis Tick strategies]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/globals.html#axistickstrategies
-[Area series types]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/globals.html#areaseriestypes
-[Color factory RGBA]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/globals.html#colorrgba
-[Paletted fill style]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/classes/palettedfill.html
-[Color lookup table]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/classes/lut.html
-[Empty line style]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/globals.html#emptyline
-[Empty fill style]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/globals.html#emptyfill
-[Empty tick style]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/globals.html#emptytick
-[UI element builders]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/globals.html#uielementbuilders
-[UI origins]: https://www.arction.com/lightningchart-js-api-documentation/v3.3.0/globals.html#uiorigins
+[LightningChart]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/interfaces/lightningchart.html
+[Chart XY]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/chartxy.html
+[Axis XY]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/axis.html
+[Area Series]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/areaseriespositive.html
+[Heatmap Grid Series]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/heatmapgridseriesintensityvalues.html
+[UI LUT range]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/interfaces/uilutrange.html
+[UI Element]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/interfaces/uielement.html
+[Axis Tick strategies]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#axistickstrategies
+[Area series types]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#areaseriestypes
+[Color factory RGBA]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#colorrgba
+[Paletted fill style]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/palettedfill.html
+[Color lookup table]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/lut.html
+[Empty line style]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#emptyline
+[Empty fill style]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#emptyfill
+[Empty tick style]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#emptytick
+[UI element builders]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#uielementbuilders
+[UI origins]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#uiorigins
 
