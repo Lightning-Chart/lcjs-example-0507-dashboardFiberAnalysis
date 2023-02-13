@@ -1,6 +1,6 @@
 # JavaScript Distance Intensity Chart
 
-![JavaScript Distance Intensity Chart](dashboardWaterfall.png)
+![JavaScript Distance Intensity Chart](dashboardWaterfall-darkGold.png)
 
 This demo application belongs to the set of examples for LightningChart JS, data visualization library for JavaScript.
 
@@ -8,13 +8,13 @@ LightningChart JS is entirely GPU accelerated and performance optimized charting
 
 The demo can be used as an example or a seed project. Local execution requires the following steps:
 
-- Make sure that relevant version of [Node.js](https://nodejs.org/en/download/) is installed
-- Open the project folder in a terminal:
+-   Make sure that relevant version of [Node.js](https://nodejs.org/en/download/) is installed
+-   Open the project folder in a terminal:
 
-        npm install              # fetches dependencies
-        npm start                # builds an application and starts the development server
+          npm install              # fetches dependencies
+          npm start                # builds an application and starts the development server
 
-- The application is available at *http://localhost:8080* in your browser, webpack-dev-server provides hot reload functionality.
+-   The application is available at _http://localhost:8080_ in your browser, webpack-dev-server provides hot reload functionality.
 
 
 ## Description
@@ -59,38 +59,38 @@ The data used in the example is randomly generated each time the example is run.
 
 If you notice an error in the example code, please open an issue on [GitHub][0] repository of the entire example.
 
-Official [API documentation][1] can be found on [Arction][2] website.
+Official [API documentation][1] can be found on [LightningChart][2] website.
 
 If the docs and other materials do not solve your problem as well as implementation help is needed, ask on [StackOverflow][3] (tagged lightningchart).
 
-If you think you found a bug in the LightningChart JavaScript library, please contact support@arction.com.
+If you think you found a bug in the LightningChart JavaScript library, please contact support@lightningchart.com.
 
-Direct developer email support can be purchased through a [Support Plan][4] or by contacting sales@arction.com.
+Direct developer email support can be purchased through a [Support Plan][4] or by contacting sales@lightningchart.com.
 
 [0]: https://github.com/Arction/
-[1]: https://www.arction.com/lightningchart-js-api-documentation/
-[2]: https://www.arction.com
+[1]: https://lightningchart.com/lightningchart-js-api-documentation/
+[2]: https://lightningchart.com
 [3]: https://stackoverflow.com/questions/tagged/lightningchart
-[4]: https://www.arction.com/support-services/
+[4]: https://lightningchart.com/support-services/
 
-© Arction Ltd 2009-2020. All rights reserved.
+© LightningChart Ltd 2009-2022. All rights reserved.
 
 
-[LightningChart]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/interfaces/lightningchart.html
-[Chart XY]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/chartxy.html
-[Axis XY]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/axis.html
-[Area Series]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/areaseriespositive.html
-[Heatmap Grid Series]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/heatmapgridseriesintensityvalues.html
-[UI LUT range]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/interfaces/uilutrange.html
-[UI Element]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/interfaces/uielement.html
-[Axis Tick strategies]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#axistickstrategies
-[Area series types]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#areaseriestypes
-[Color factory RGBA]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#colorrgba
-[Paletted fill style]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/palettedfill.html
-[Color lookup table]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/lut.html
-[Empty line style]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#emptyline
-[Empty fill style]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#emptyfill
-[Empty tick style]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#emptytick
-[UI element builders]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#uielementbuilders
-[UI origins]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#uiorigins
+[LightningChart]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/functions/lightningChart-1.html
+[Chart XY]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/ChartXY.html
+[Axis XY]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/Axis.html
+[Area Series]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/AreaSeriesPositive.html
+[Heatmap Grid Series]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/HeatmapGridSeriesIntensityValues.html
+[UI LUT range]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/interfaces/UILUTRange.html
+[UI Element]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/interfaces/UIElement.html
+[Axis Tick strategies]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/variables/AxisTickStrategies.html
+[Area series types]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/AreaSeriesTypes.html
+[Color factory RGBA]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/functions/ColorRGBA.html
+[Paletted fill style]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/PalettedFill.html
+[Color lookup table]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/LUT.html
+[Empty line style]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/variables/emptyLine.html
+[Empty fill style]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/variables/emptyFill-1.html
+[Empty tick style]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/variables/emptyTick.html
+[UI element builders]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/variables/UIElementBuilders.html
+[UI origins]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/variables/UIOrigins.html
 
