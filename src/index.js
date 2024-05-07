@@ -21,7 +21,6 @@ const {
     emptyTick,
     UIElementBuilders,
     UIOrigins,
-    synchronizeAxisIntervals,
     Themes,
 } = lcjs
 
@@ -84,39 +83,17 @@ const dataPromise = new Promise(async (resolve) => {
     })
 })
 
-// NOTE: Using `Dashboard` is no longer recommended for new applications. Find latest recommendations here: https://lightningchart.com/js-charts/docs/basic-topics/grouping-charts/
-const dashboard = lightningChart({
+const chart = lightningChart({
             resourcesBaseUrl: new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'resources/',
         })
-    .Dashboard({
+    .ChartXY({
         theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
-        numberOfColumns: 1,
-        numberOfRows: 2,
-    })
-    .setRowHeight(0, 0.3)
-    .setRowHeight(1, 0.7)
-
-const chartTop = dashboard
-    .createChartXY({
-        rowIndex: 0,
-        columnIndex: 0,
     })
     .setTitle('Distance Intensity Chart')
-    .setPadding({ right: 24 })
 
-const axisTopX = chartTop.getDefaultAxisX().setTickStrategy(AxisTickStrategies.Empty).setStrokeStyle(emptyLine)
-
-const axisTopY = chartTop.getDefaultAxisY().setTitle('Intensity Sum')
-
-const chartBottom = dashboard
-    .createChartXY({
-        rowIndex: 1,
-        columnIndex: 0,
-    })
-    .setTitleFillStyle(emptyFill)
-    .setPadding({ right: 24 })
-
-const axisBottomX = chartBottom.getDefaultAxisX().setTitle('Optical Fiber Distance (m)')
+chart.yAxis.dispose()
+const axisTopY = chart.addAxisY({ iStack: 1 }).setTitle('Intensity Sum').setLength({ pixels: 200 }).setMargins(10, 0)
+const axisX = chart.axisX.setTitle('Optical Fiber Distance (m)')
 
 const formatterOptionsDateTimeAxis = {
     hour: 'numeric',
@@ -124,8 +101,8 @@ const formatterOptionsDateTimeAxis = {
     second: 'numeric',
 }
 
-const axisBottomY = chartBottom
-    .getDefaultAxisY()
+const axisBottomY = chart
+    .addAxisY({ iStack: 0 })
     .setTitle('Time')
     .setTickStrategy(AxisTickStrategies.DateTime, (ticks) =>
         ticks
@@ -143,13 +120,7 @@ const axisBottomY = chartBottom
             .setFormattingYear(formatterOptionsDateTimeAxis, {}),
     )
 
-// Code for synchronizing all X Axis intervals in stacked XY charts.
-synchronizeAxisIntervals(axisBottomX, axisTopX)
-
-// Align stacked Y Axes'.
-;[axisTopY, axisBottomY].forEach((axis) => axis.setThickness(100))
-
-const theme = dashboard.getTheme()
+const theme = chart.getTheme()
 const lut = new LUT({
     interpolate: false,
     steps: [{ value: 0, color: ColorRGBA(0, 0, 0, 0) }, ...regularColorSteps(200, 600, theme.examples.intensityColorPalette)],
@@ -159,11 +130,11 @@ const lut = new LUT({
 dataPromise.then((data) => {
     const { traceDataArray, areaData } = data
 
-    const areaSeries = chartTop
-        .addAreaSeries({ type: AreaSeriesTypes.Positive })
+    const areaSeries = chart
+        .addAreaSeries({ type: AreaSeriesTypes.Positive, yAxis: axisTopY })
         .add(areaData)
         .setCursorResultTableFormatter((builder, series, x, y) =>
-            builder.addRow('Intensity sum:', '', y.toFixed(1)).addRow('Optical fiber distance:', '', axisBottomX.formatValue(x) + ' m'),
+            builder.addRow('Intensity sum:', '', y.toFixed(1)).addRow('Optical fiber distance:', '', axisX.formatValue(x) + ' m'),
         )
 
     const heatmapOptions = {
@@ -178,8 +149,9 @@ dataPromise.then((data) => {
             y: CONFIG.timeStep,
         },
         dataOrder: 'rows',
+        yAxis: axisBottomY,
     }
-    const heatmapSeries = chartBottom
+    const heatmapSeries = chart
         .addHeatmapGridSeries(heatmapOptions)
         .setIntensityInterpolation('disabled')
         .invalidateIntensityValues(traceDataArray)
@@ -193,20 +165,15 @@ dataPromise.then((data) => {
         .setCursorResultTableFormatter((builder, series, dataPoint) =>
             builder
                 .addRow('Intensity:', '', dataPoint.intensity.toFixed(1))
-                .addRow('Optical fiber distance:', '', axisBottomX.formatValue(dataPoint.x) + ' m')
+                .addRow('Optical fiber distance:', '', axisX.formatValue(dataPoint.x) + ' m')
                 .addRow('Time:', '', axisBottomY.formatValue(dataPoint.y)),
         )
 
-    axisBottomX.fit(false)
-    axisBottomY.fit(false)
-    axisTopX.fit(false)
-    axisTopY.fit(false)
-
-    chartBottom.setPadding({
+    chart.setPadding({
         bottom: 64,
     })
 
-    const lutRange = chartBottom
+    const lutRange = chart
         .addUIElement(UIElementBuilders.LUTRange)
         .setLUT(lut)
         .setLUTLength(500)
