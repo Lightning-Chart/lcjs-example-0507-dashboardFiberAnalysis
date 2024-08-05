@@ -2,10 +2,10 @@
  * LightningChartJS example that showcases a real life application used in Fiber Monitoring
  */
 // Import LightningChartJS
-const lcjs = require('@arction/lcjs')
+const lcjs = require('@lightningchart/lcjs')
 
 // Import xydata
-const xydata = require('@arction/xydata')
+const xydata = require('@lightningchart/xydata')
 
 // Extract required parts from LightningChartJS.
 const {
@@ -130,29 +130,37 @@ const lut = new LUT({
 dataPromise.then((data) => {
     const { traceDataArray, areaData } = data
 
-    const areaSeries = chart
-        .addAreaSeries({ type: AreaSeriesTypes.Positive, yAxis: axisTopY })
-        .add(areaData)
-        .setCursorResultTableFormatter((builder, series, x, y) =>
-            builder.addRow('Intensity sum:', '', y.toFixed(1)).addRow('Optical fiber distance:', '', axisX.formatValue(x) + ' m'),
-        )
+    chart.setCursorFormatting((_, __, hits) => {
+        const hitIntensity = hits.find((hit) => hit.series === areaSeries)
+        const hitHeatmap = hits.find((hit) => hit.series === heatmapSeries)
+        if (!hitIntensity || !hitHeatmap) return
+        return [
+            [`Optical fiber distance`, '', `${Math.round(hitIntensity.x)} m`],
+            [hitIntensity.series, '', hitIntensity.axisY.formatValue(hitIntensity.y)],
+            [hitHeatmap.series, ''],
+            ['', hitHeatmap.axisY.formatValue(hitHeatmap.y)],
+            ['Intensity', '', hitHeatmap.intensity.toFixed(1)],
+        ]
+    })
+
+    const areaSeries = chart.addAreaSeries({ type: AreaSeriesTypes.Positive, yAxis: axisTopY }).add(areaData)
 
     const heatmapOptions = {
         columns: traceDataArray[0].length,
         rows: traceDataArray.length,
-        start: {
-            x: CONFIG.opticalFibreDistanceStart,
-            y: CONFIG.timeStart - dateOrigin,
-        },
-        step: {
-            x: CONFIG.opticalFibreDistanceStep,
-            y: CONFIG.timeStep,
-        },
         dataOrder: 'rows',
         yAxis: axisBottomY,
     }
     const heatmapSeries = chart
         .addHeatmapGridSeries(heatmapOptions)
+        .setStart({
+            x: CONFIG.opticalFibreDistanceStart,
+            y: CONFIG.timeStart - dateOrigin,
+        })
+        .setStep({
+            x: CONFIG.opticalFibreDistanceStep,
+            y: CONFIG.timeStep,
+        })
         .setIntensityInterpolation('disabled')
         .invalidateIntensityValues(traceDataArray)
         .setFillStyle(
@@ -162,12 +170,6 @@ dataPromise.then((data) => {
             }),
         )
         .setWireframeStyle(emptyLine)
-        .setCursorResultTableFormatter((builder, series, dataPoint) =>
-            builder
-                .addRow('Intensity:', '', dataPoint.intensity.toFixed(1))
-                .addRow('Optical fiber distance:', '', axisX.formatValue(dataPoint.x) + ' m')
-                .addRow('Time:', '', axisBottomY.formatValue(dataPoint.y)),
-        )
 
     chart.setPadding({
         bottom: 64,
