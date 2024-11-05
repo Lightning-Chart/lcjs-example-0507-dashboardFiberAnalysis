@@ -95,30 +95,10 @@ chart.yAxis.dispose()
 const axisTopY = chart.addAxisY({ iStack: 1 }).setTitle('Intensity Sum').setLength({ pixels: 200 }).setMargins(10, 0)
 const axisX = chart.axisX.setTitle('Optical Fiber Distance (m)')
 
-const formatterOptionsDateTimeAxis = {
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-}
-
 const axisBottomY = chart
     .addAxisY({ iStack: 0 })
     .setTitle('Time')
-    .setTickStrategy(AxisTickStrategies.DateTime, (ticks) =>
-        ticks
-            .setDateOrigin(new Date(dateOrigin))
-            .setGreatTickStyle(emptyTick)
-            .setMinorTickStyle(emptyTick)
-            .setFormattingDay({}, formatterOptionsDateTimeAxis, {})
-            .setFormattingDecade(formatterOptionsDateTimeAxis, {})
-            .setFormattingHour({}, formatterOptionsDateTimeAxis, {})
-            .setFormattingMilliSecond({}, formatterOptionsDateTimeAxis)
-            .setFormattingMinute({}, formatterOptionsDateTimeAxis, {})
-            .setFormattingMonth({}, formatterOptionsDateTimeAxis, {})
-            .setFormattingSecond({}, formatterOptionsDateTimeAxis)
-            .setFormattingWeek({}, formatterOptionsDateTimeAxis, {})
-            .setFormattingYear(formatterOptionsDateTimeAxis, {}),
-    )
+    .setTickStrategy(AxisTickStrategies.DateTime, (ticks) => ticks.setDateOrigin(new Date(dateOrigin)).setGreatTickStyle(emptyTick))
 
 const theme = chart.getTheme()
 const lut = new LUT({
