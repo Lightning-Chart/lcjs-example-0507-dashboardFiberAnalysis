@@ -92,7 +92,15 @@ const chart = lightningChart({
     .setTitle('Distance Intensity Chart')
 
 chart.yAxis.dispose()
-const axisTopY = chart.addAxisY({ iStack: 1 }).setTitle('Intensity Sum').setLength({ pixels: 200 }).setMargins(10, 0)
+const axisTopY = chart
+    .addAxisY({ iStack: 1 })
+    .setTitle('Intensity Sum')
+    .setLength({ pixels: 200 })
+    .setMargins(10, 0)
+    .setUserInteractions({
+        wheel: { mode: 'keep-start' },
+        touchZoom: { mode: 'keep-start' },
+    })
 const axisX = chart.axisX.setTitle('Optical Fiber Distance (m)')
 
 const axisBottomY = chart
@@ -115,7 +123,12 @@ dataPromise.then((data) => {
         const hitHeatmap = hits.find((hit) => hit.series === heatmapSeries)
         if (!hitIntensity || !hitHeatmap) return
         return [
-            [`Optical fiber distance`, '', `${Math.round(hitIntensity.x)} m`],
+            [
+                {
+                    text: `Optical fiber distance: ${Math.round(hitIntensity.x)} m`,
+                    rowFillStyle: chart.getTheme().cursorResultTableHeaderBackgroundFillStyle,
+                },
+            ],
             [hitIntensity.series, '', hitIntensity.axisY.formatValue(hitIntensity.y)],
             [hitHeatmap.series, ''],
             ['', hitHeatmap.axisY.formatValue(hitHeatmap.y)],
@@ -123,7 +136,7 @@ dataPromise.then((data) => {
         ]
     })
 
-    const areaSeries = chart.addAreaSeries({ type: AreaSeriesTypes.Positive, yAxis: axisTopY }).add(areaData)
+    const areaSeries = chart.addPointLineAreaSeries({ dataPattern: 'ProgressiveX', yAxis: axisTopY }).appendJSON(areaData)
 
     const heatmapOptions = {
         columns: traceDataArray[0].length,
