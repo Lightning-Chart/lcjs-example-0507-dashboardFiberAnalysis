@@ -118,7 +118,7 @@ const lut = new LUT({
 dataPromise.then((data) => {
     const { traceDataArray, areaData } = data
 
-    chart.setCursorFormatting((_, __, hits) => {
+    chart.setCursorMode('show-all-interpolated').setCursorFormatting((_, __, hits) => {
         const hitIntensity = hits.find((hit) => hit.series === areaSeries)
         const hitHeatmap = hits.find((hit) => hit.series === heatmapSeries)
         if (!hitIntensity || !hitHeatmap) return
