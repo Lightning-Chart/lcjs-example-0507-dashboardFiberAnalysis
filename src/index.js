@@ -87,6 +87,7 @@ const chart = lightningChart({
             resourcesBaseUrl: new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'resources/',
         })
     .ChartXY({
+        legend: { addEntriesAutomatically: false },
         theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
     })
     .setTitle('Distance Intensity Chart')
@@ -112,7 +113,10 @@ const theme = chart.getTheme()
 const lut = new LUT({
     interpolate: false,
     steps: [{ value: 0, color: ColorRGBA(0, 0, 0, 0) }, ...regularColorSteps(200, 600, theme.examples.intensityColorPalette)],
+    units: 'Intensity'
 })
+
+chart.legend.add(lut, {lutLength: 500})
 
 // Visualize data.
 dataPromise.then((data) => {
@@ -136,7 +140,7 @@ dataPromise.then((data) => {
         ]
     })
 
-    const areaSeries = chart.addPointLineAreaSeries({ dataPattern: 'ProgressiveX', yAxis: axisTopY }).appendJSON(areaData)
+    const areaSeries = chart.addPointLineAreaSeries({ yAxis: axisTopY }).appendJSON(areaData)
 
     const heatmapOptions = {
         columns: traceDataArray[0].length,
@@ -163,21 +167,4 @@ dataPromise.then((data) => {
             }),
         )
         .setWireframeStyle(emptyLine)
-
-    chart.setPadding({
-        bottom: 64,
-    })
-
-    const lutRange = chart
-        .addUIElement(UIElementBuilders.LUTRange)
-        .setLUT(lut)
-        .setLUTLength(500)
-        .setLookUpUnit('Intensity')
-        .setPosition({ x: 50, y: 0 })
-        .setOrigin(UIOrigins.CenterBottom)
-        .setAutoDispose({
-            type: 'max-width',
-            maxWidth: 0.8,
-        })
-        .setBackground((background) => background.setFillStyle(emptyFill).setStrokeStyle(emptyLine))
 })
