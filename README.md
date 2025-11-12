@@ -44,7 +44,6 @@ The data used in the example is randomly generated each time the example is run.
 * [UI LUT range]
 * [UI Element]
 * [Axis Tick strategies]
-* [Area series types]
 * [Color factory RGBA]
 * [Paletted fill style]
 * [Color lookup table]
@@ -76,21 +75,20 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © LightningChart Ltd 2009-2025. All rights reserved.
 
 
-[LightningChart]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/functions/lightningChart-1.html
-[Chart XY]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/ChartXY.html
-[Axis XY]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/Axis.html
-[Area Series]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/AreaSeriesPositive.html
-[Heatmap Grid Series]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/HeatmapGridSeriesIntensityValues.html
-[UI LUT range]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/interfaces/UILUTRange.html
-[UI Element]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/interfaces/UIElement.html
-[Axis Tick strategies]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/variables/AxisTickStrategies.html
-[Area series types]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/AreaSeriesTypes.html
-[Color factory RGBA]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/functions/ColorRGBA.html
-[Paletted fill style]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/PalettedFill.html
-[Color lookup table]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/classes/LUT.html
-[Empty line style]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/variables/emptyLine.html
-[Empty fill style]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/variables/emptyFill-1.html
-[Empty tick style]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/variables/emptyTick.html
-[UI element builders]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/variables/UIElementBuilders.html
-[UI origins]: https://lightningchart.com/js-charts/api-documentation/v8.0.1/variables/UIOrigins.html
+[LightningChart]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/functions/lightningChart-1.html
+[Chart XY]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/ChartXY.html
+[Axis XY]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/Axis.html
+[Area Series]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/PointLineAreaSeries.html
+[Heatmap Grid Series]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/HeatmapGridSeriesIntensityValues.html
+[UI LUT range]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/interfaces/UILUTRange.html
+[UI Element]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/interfaces/UIElement.html
+[Axis Tick strategies]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/variables/AxisTickStrategies.html
+[Color factory RGBA]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/functions/ColorRGBA.html
+[Paletted fill style]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/PalettedFill.html
+[Color lookup table]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/classes/LUT.html
+[Empty line style]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/variables/emptyLine.html
+[Empty fill style]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/variables/emptyFill-1.html
+[Empty tick style]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/variables/emptyTick.html
+[UI element builders]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/variables/UIElementBuilders.html
+[UI origins]: https://lightningchart.com/js-charts/api-documentation/v8.1.0/variables/UIOrigins.html
 

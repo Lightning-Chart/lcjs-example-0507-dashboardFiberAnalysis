@@ -13,7 +13,6 @@ const {
     AxisTickStrategies,
     emptyLine,
     emptyFill,
-    AreaSeriesTypes,
     ColorRGBA,
     regularColorSteps,
     PalettedFill,
@@ -113,10 +112,10 @@ const theme = chart.getTheme()
 const lut = new LUT({
     interpolate: false,
     steps: [{ value: 0, color: ColorRGBA(0, 0, 0, 0) }, ...regularColorSteps(200, 600, theme.examples.intensityColorPalette)],
-    units: 'Intensity'
+    units: 'Intensity',
 })
 
-chart.legend.add(lut, {lutLength: 500})
+chart.legend.add(lut, { lutLength: 500 })
 
 // Visualize data.
 dataPromise.then((data) => {
